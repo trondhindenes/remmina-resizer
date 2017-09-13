@@ -27,3 +27,7 @@ This way you can tweak your settings even if you use the same computer with mult
 
 If you don't create a settings file, remmina-resizer will default to the settings shown above (which means that the last setting is redundant and just meant as an example)
 
+### installing
+Simply run `(sudo) pip install remmina-resizer`
+
+
