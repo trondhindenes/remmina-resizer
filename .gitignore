@@ -1,0 +1,5 @@
+.idea/
+remmina_resizer.egg-info/
+build/
+dist/
+*.pyc
