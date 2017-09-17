@@ -22,7 +22,7 @@ default:
   reduce_height: 111
 ```
 
-if your resolution is 1920x1080 the last setting will be used, if not the default will be used.
+if your resolution is 1920x1080 the last setting will be used, if not the default will be used. You can add as many items to your settings file as you'd like, indicating each by the pixel resolution of your screen (such as `1920x1080`)
 This way you can tweak your settings even if you use the same computer with multiple screens, such as a large monitor at work and the built-in laptop screen at home.
 
 ### What it does:
@@ -33,7 +33,10 @@ Remmina-resizer will only adjust RDP-type connections.
 
 If you don't create a settings file, remmina-resizer will default to the settings shown above (which means that the last setting is redundant and just meant as an example).
 
-### installing
-Simply run `(sudo) pip install remmina-resizer`
+### How to install
+Install using pip/pip3: `(sudo) pip install remmina-resizer`
 
 
+### How to run
+run `remmina-resizer`. Note that any active RDP sessions will not be resized on the fly, you have to disconnect/reconnect to the session before the changes are activated. It's probably smart to just run remmina-resizer each time you've switched to another display, or have added RDP connections to Remmina.
+Also note that editing a connection inside Remmina seems to reset the edited connection to its original value, so also run remmina-resizer after you've edited a connection.
