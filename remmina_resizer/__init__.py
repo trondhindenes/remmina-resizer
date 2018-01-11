@@ -27,9 +27,12 @@ def main():
     print('Optimal resolution: height: {}, width: {}'.format(str(height), str(width)))
 
     remmina_files = os.listdir(xdg_data_home)
+    adjusted_files_count = 0
     for conn_file in remmina_files:
         conn_file_full_path = os.path.join(xdg_data_home, conn_file)
         adjust_remmina_resolution(conn_file_full_path, height, width)
+        adjusted_files_count += 1
+    print('adjusted {} files'.format(str(adjusted_files_count)))
 
 def load_settings(settings_file):
     print('loading settings file {}'.format(settings_file))
@@ -51,6 +54,7 @@ def adjust_remmina_resolution(conn_file, height, width):
             if line == 'protocol=RDP' + os.linesep:
                 is_rdp_file = True
     newlines = []
+    
     for line in file_contents:
         if line.startswith('resolution_height'):
             line = 'resolution_height={}'.format(str(height)) + os.linesep
@@ -59,9 +63,12 @@ def adjust_remmina_resolution(conn_file, height, width):
         elif line.startswith('resolution='):
             line = 'resolution={}x{}'.format(str(width), str(height)) + os.linesep
         newlines.append(line)
-    print('adjusting file {}'.format(conn_file))
+
     with open(conn_file, 'w') as stream:
+        
         stream.writelines(newlines)
+
+    
 
 
 def get_optimal_screen_resolution(settings):
